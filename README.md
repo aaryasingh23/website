@@ -1,100 +1,431 @@
-# AAMPL — Advanced Anmol Metcomp Pvt. Ltd.
+# 🚗 AAMPL — Advanced Anmol Metcomp Pvt. Ltd.
 
-A ground-up rebuild of the AAMPL website: a premium, interactive marketing site for a Tier-1
-automotive supplier of precision sheet-metal and machined components.
+> **Precision Engineering. Advanced Manufacturing. Built for the Future.**
 
-## Stack
+A ground-up rebuild of the **AAMPL corporate website** — a premium, interactive digital experience for a **Tier-1 automotive manufacturing company** specializing in precision sheet-metal and machined components.
 
-| Layer | Choice |
-|---|---|
-| Framework | Next.js 15 (App Router, TypeScript, Turbopack) |
-| Styling | Tailwind CSS v4 (CSS-first `@theme` tokens in `src/app/globals.css`) |
-| Motion | `motion` (Framer Motion v12) |
-| 3D | React Three Fiber + drei + three |
-| Scroll | Lenis inertial scrolling |
-| Icons | lucide-react |
+The website combines **modern industrial design, interactive 3D experiences, smooth animations, responsive layouts, and performance-focused architecture** to represent AAMPL's engineering capabilities and manufacturing excellence.
 
-Every route is statically prerendered. Three.js is lazy-loaded and never enters the shared bundle.
+---
 
-## Getting started
+## ✨ Highlights
+
+* 🏭 Premium automotive manufacturing website
+* ⚡ High-performance Next.js architecture
+* 🎨 Modern industrial design system
+* 🧊 Interactive 3D product visualization
+* 🌀 Smooth inertial scrolling with Lenis
+* 🎬 Advanced animations and page transitions
+* 📱 Fully responsive across desktop, tablet and mobile
+* ♿ Accessibility-focused implementation
+* 🔍 SEO-optimized pages and structured metadata
+* 🚀 Static prerendering for fast page loads
+* 📐 Real AAMPL factory and product photography
+* 🧩 Modular, reusable component architecture
+
+---
+
+## 🛠️ Tech Stack
+
+| Layer         | Technology                          |
+| ------------- | ----------------------------------- |
+| ⚛️ Framework  | Next.js 15 — App Router             |
+| 🟦 Language   | TypeScript                          |
+| 🎨 Styling    | Tailwind CSS v4                     |
+| 🎬 Animation  | Motion / Framer Motion v12          |
+| 🧊 3D         | React Three Fiber + Drei + Three.js |
+| 🖱️ Scrolling | Lenis                               |
+| 🔹 Icons      | Lucide React                        |
+| ⚡ Bundler     | Turbopack                           |
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/aaryasingh23/website.git
+cd website
+```
+
+### 2. Install dependencies
 
 ```bash
 npm install
-npm run dev      # http://localhost:3000
-npm run build    # production build
-npm start        # serve the production build
 ```
 
-## Design system
+### 3. Start the development server
 
-Defined once in `src/app/globals.css` under `@theme`, consumed as Tailwind utilities everywhere.
-
-- **`ink-*`** — the dark canvas. Blue-black, never neutral grey.
-- **`brand-*`** — brand blue. Structure, trust, links, data.
-- **`signal-*`** — signal red. Energy, precision marks, active state, CTAs.
-- **`steel-*`** — machined greys, and the structure of the light sections.
-
-Type: **Sora** (display) · **Inter** (body) · **JetBrains Mono** (spec readouts, eyebrows, data
-labels). The mono is what gives the site its instrument feel — use it for anything that reads as a
-measurement.
-
-Pages alternate dark and light sections deliberately. Dark carries the cinematic and 3D moments;
-light carries dense, readable content (spec tables, products, FAQ).
-
-Custom utilities worth knowing: `container-x`, `section-y`, `text-gradient-steel` /
-`text-gradient-ink` / `text-gradient-brand`, `bg-blueprint` / `bg-blueprint-light`, `glass`,
-`eyebrow`, `mask-edges`.
-
-## Structure
-
+```bash
+npm run dev
 ```
+
+Open:
+
+```text
+http://localhost:3000
+```
+
+### 4. Create a production build
+
+```bash
+npm run build
+```
+
+### 5. Start the production server
+
+```bash
+npm start
+```
+
+---
+
+## 🎨 Design System
+
+The design system is centralized in:
+
+```text
+src/app/globals.css
+```
+
+Tailwind CSS v4 `@theme` tokens are used throughout the application.
+
+### 🎯 Color System
+
+* **`ink-*`** — Dark blue-black canvas
+* **`brand-*`** — Brand blue for structure, trust and data
+* **`signal-*`** — Signal red for energy, precision and active states
+* **`steel-*`** — Machined greys for light sections
+
+### 🔤 Typography
+
+The website uses three primary typefaces:
+
+* **Sora** — Display headings
+* **Inter** — Body content
+* **JetBrains Mono** — Technical specifications, measurements and data labels
+
+The monospace typography gives the interface an **engineering / instrumentation feel**.
+
+### 🧩 Custom Utilities
+
+```text
+container-x
+section-y
+text-gradient-steel
+text-gradient-ink
+text-gradient-brand
+bg-blueprint
+bg-blueprint-light
+glass
+eyebrow
+mask-edges
+```
+
+---
+
+## 🧱 Project Structure
+
+```text
 src/
-  app/                  one directory per route, each a thin shell:
-                        metadata + <PageHero> + a body component
-  components/
-    layout/             Navbar (mega menu), Footer, PageHero,
-                        SmoothScroll, PageTransition, Logo
-    sections/           one file per page section — Hero, Stats, About,
-                        Capabilities, Localization, PlantTour, …Body files
-    three/              PrecisionPartScene (R3F canvas) + geometry.ts
-    ui/                 Reveal/Stagger, Button, Primitives (Counter,
-                        TiltCard, Marquee, Parallax…), Lightbox, StepFlow
-  lib/
-    content.ts          ← all business copy and data lives here
-    nav.ts              navigation + mega-menu structure
-    utils.ts            cn() and easing constants
-public/images/          ~145 real AAMPL factory and product photographs
+│
+├── app/
+│   └── One directory per route
+│       ├── Page metadata
+│       ├── PageHero
+│       └── Page body
+│
+├── components/
+│   │
+│   ├── layout/
+│   │   ├── Navbar
+│   │   ├── Footer
+│   │   ├── PageHero
+│   │   ├── SmoothScroll
+│   │   ├── PageTransition
+│   │   └── Logo
+│   │
+│   ├── sections/
+│   │   ├── Hero
+│   │   ├── Stats
+│   │   ├── About
+│   │   ├── Capabilities
+│   │   ├── Localization
+│   │   ├── PlantTour
+│   │   └── Page Sections
+│   │
+│   ├── three/
+│   │   ├── PrecisionPartScene
+│   │   └── geometry.ts
+│   │
+│   └── ui/
+│       ├── Reveal
+│       ├── Stagger
+│       ├── Button
+│       ├── Counter
+│       ├── TiltCard
+│       ├── Marquee
+│       ├── Parallax
+│       ├── Lightbox
+│       └── StepFlow
+│
+├── lib/
+│   ├── content.ts
+│   ├── nav.ts
+│   └── utils.ts
+│
+└── public/
+    └── images/
+        └── AAMPL factory & product photography
 ```
 
-**To change copy, edit `src/lib/content.ts`.** Components read from it; nothing is hard-coded in
-markup except section headings.
+---
 
-## The 3D hero
+## 📝 Content Management
 
-`src/components/three/geometry.ts` builds three real AAMPL part archetypes procedurally with
-`THREE.Shape` extrusions and a lathe profile — a stamped structural bracket, an EV busbar assembly
-and a deep-drawn ECU housing. No model files, no CDN assets.
+All major business content is centralized in:
 
-Lighting is a virtual studio of `<Lightformer>`s inside drei's `<Environment>`: a broad white key
-plus two narrow softbox streaks give the specular bands that read as machined metal, and a red rim
-left / blue rim right carry the brand identity onto the part edges.
+```text
+src/lib/content.ts
+```
 
-Performance guards, all in place:
+This includes:
 
-- The canvas mounts on `requestIdleCallback`, never on the critical path.
-- `frameloop` flips to `"never"` the moment the hero leaves the viewport.
-- Coarse-pointer and sub-768px devices get `lite` mode — no shadows, DPR capped at 1.25.
-- Below `lg` the canvas is a band of its own beneath the copy rather than an overlay behind it.
-- `prefers-reduced-motion` disables the spin, float and scan sweep throughout.
+* Company information
+* Products
+* Capabilities
+* Manufacturing information
+* Page content
+* Business data
+* Contact information
 
-## Accessibility
+### 💡 Updating Website Copy
 
-Skip link, visible focus rings, `aria-expanded` on all disclosures, keyboard-navigable lightbox
-(← → Esc), and a full reduced-motion path — every `Reveal`, `Counter`, `TiltCard` and page
-transition checks `useReducedMotion()` and renders statically.
+Instead of modifying individual components, update:
 
-## SEO
+```text
+src/lib/content.ts
+```
 
-Per-route `metadata`, Organization JSON-LD in the root layout, FAQPage JSON-LD on `/faq`, plus
-`sitemap.ts` and `robots.ts` metadata routes. Set the canonical origin in
-`company.domain` (`src/lib/content.ts`) — `metadataBase` derives from it.
+Components consume the centralized content, keeping the application easier to maintain.
+
+---
+
+## 🧊 Interactive 3D Hero
+
+The hero section features procedurally generated **AAMPL-inspired automotive components** using React Three Fiber and Three.js.
+
+### 🔩 3D Components
+
+The geometry system creates three part archetypes:
+
+1. **Stamped Structural Bracket**
+2. **EV Busbar Assembly**
+3. **Deep-Drawn ECU Housing**
+
+These are generated using:
+
+```text
+THREE.Shape
+ExtrudeGeometry
+LatheGeometry
+```
+
+No external model files or CDN assets are required.
+
+### 💡 Virtual Studio Lighting
+
+The scene uses Drei's `<Environment>` and `<Lightformer>` elements to create a virtual studio environment.
+
+The lighting setup includes:
+
+* White key light
+* Softbox streaks
+* Red rim lighting
+* Blue rim lighting
+* Metallic specular highlights
+
+---
+
+## ⚡ 3D Performance Optimization
+
+The 3D experience is designed with performance as a priority.
+
+### 🚀 Optimizations
+
+* Canvas mounts using `requestIdleCallback`
+* 3D rendering is removed from the active loop when outside the viewport
+* Mobile devices use a lightweight rendering mode
+* Shadows are disabled on constrained devices
+* Device pixel ratio is capped
+* Smaller screens use a dedicated 3D section
+* `prefers-reduced-motion` disables unnecessary animation
+
+### 📱 Responsive 3D
+
+```text
+Desktop
+→ Full interactive 3D experience
+
+Tablet / Mobile
+→ Lightweight 3D mode
+
+Small screens
+→ Dedicated 3D visual section
+```
+
+---
+
+## 🎞️ Motion & Interactions
+
+The website uses Motion / Framer Motion for:
+
+* Page transitions
+* Scroll reveals
+* Staggered animations
+* Counters
+* Hover interactions
+* Product interactions
+* Parallax effects
+* UI transitions
+
+Lenis provides smooth inertial scrolling throughout the experience.
+
+---
+
+## ♿ Accessibility
+
+Accessibility has been considered throughout the application.
+
+### Included
+
+* 🔗 Skip navigation link
+* 🎯 Visible keyboard focus states
+* ⌨️ Keyboard-accessible interactions
+* 📖 `aria-expanded` for disclosures
+* 🖼️ Keyboard-accessible lightbox
+* ⬅️ Previous / next image navigation
+* ✕ Escape-to-close support
+* 🧘 Reduced-motion support
+
+Interactive components such as:
+
+```text
+Reveal
+Counter
+TiltCard
+PageTransition
+```
+
+respect the user's `prefers-reduced-motion` setting.
+
+---
+
+## 🔍 SEO
+
+The application includes route-level SEO configuration and structured metadata.
+
+### Included
+
+* Per-route metadata
+* Organization JSON-LD
+* FAQPage JSON-LD
+* Sitemap
+* Robots metadata
+* Canonical URLs
+* `metadataBase`
+
+The canonical website origin is configured through:
+
+```text
+src/lib/content.ts
+```
+
+using:
+
+```text
+company.domain
+```
+
+---
+
+## 📸 Real AAMPL Assets
+
+The project includes approximately **145 real AAMPL factory and product photographs**.
+
+Located at:
+
+```text
+public/images/
+```
+
+These assets are used throughout the website to provide an authentic representation of AAMPL's manufacturing environment and products.
+
+---
+
+## 📈 Performance Philosophy
+
+The website is built around a simple principle:
+
+> **Rich visual experience without compromising performance.**
+
+Key decisions include:
+
+* Static prerendering wherever possible
+* Lazy-loaded 3D experiences
+* No unnecessary 3D assets
+* Responsive rendering strategies
+* Centralized content management
+* Reusable UI components
+* Reduced-motion support
+* Lightweight shared bundles
+
+---
+
+## 🏗️ Architecture Philosophy
+
+The application follows a modular architecture where:
+
+```text
+Routes
+   ↓
+Page Shell
+   ↓
+Reusable Sections
+   ↓
+UI Components
+   ↓
+Centralized Content
+```
+
+This makes the website easier to:
+
+* Maintain
+* Extend
+* Optimize
+* Reuse
+* Scale
+
+---
+
+## 🌐 Live Website
+
+🔗 **AAMPL Website:**
+https://aampl.in
+
+---
+
+## 👨‍💻 Development
+
+Built with modern web technologies and a focus on:
+
+**Performance · Accessibility · Motion · 3D · SEO · Responsive Design**
+
+---
+
+## 📄 License
+
+This project is developed for **Advanced Anmol Metcomp Pvt. Ltd. (AAMPL)**.
+
+All company content, photography, branding, trademarks and proprietary assets belong to their respective owners.
